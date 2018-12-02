@@ -1,0 +1,79 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Status: Inserir</title>
+    </head>
+    <body>
+@{
+    Status status = new Status();
+
+    StatusBLL statBLL = new StatusBLL();
+
+    string tabela = statBLL.listarTabelaHTML();
+
+    <hr>
+    <table>
+        <caption>Status antes do insert</caption>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tel</th>
+                <th>Placa</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Raw(tabela)
+        </tbody>
+    </table>
+
+    string resultado = statBLL.inserir(status);
+
+    if (String.IsNullOrEmpty(resultado))
+    {
+        <script type="text/javascript">alert("Dado inserido com sucesso!")</script>
+    }
+    else
+    {
+        string msgErro = null;
+        if (resultado.IndexOf("N") >= 0)
+        {
+            msgErro += "Nome inválido!";
+        }
+        if (resultado.IndexOf("T") >= 0)
+        {
+            msgErro += "Telefone inválido!";
+        }
+        if (resultado.IndexOf("P") >= 0)
+        {
+            msgErro += "Placa inválida!";
+        }
+
+        <script type="text/javascript">alert('@Html.Raw(@msgErro)')</script>
+
+    }
+
+    tabela = statBLL.listarTabelaHTML();
+
+    <hr>
+    <table>
+        <caption>Status depois do insert</caption>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tel</th>
+                <th>Placa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Raw(tabela)
+        </tbody>
+    </table>
+    }
+
+    </body>
+</html>

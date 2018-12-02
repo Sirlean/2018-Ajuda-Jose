@@ -1,0 +1,14 @@
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MechanicsDAL.dll
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MechanicsDAL.pdb
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MODEL.dll
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MODEL.pdb
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\MechanicsDAL.dll
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\MechanicsDAL.pdb
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MechanicsDAL.dll
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MechanicsDAL.pdb
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MODEL.dll
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\bin\Debug\MODEL.pdb
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\MechanicsDAL.dll
+E:\Mecanica.html\Mechanics.tcc\MechanicsDAL\obj\Debug\MechanicsDAL.pdb

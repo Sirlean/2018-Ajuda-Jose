@@ -1,0 +1,10 @@
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MODEL\bin\Debug\MODEL.dll
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MODEL\bin\Debug\MODEL.pdb
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.dll
+C:\Users\Marco\Desktop\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.pdb
+E:\Mecanica.html\Mechanics.tcc\MODEL\bin\Debug\MODEL.dll
+E:\Mecanica.html\Mechanics.tcc\MODEL\bin\Debug\MODEL.pdb
+E:\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.csprojResolveAssemblyReference.cache
+E:\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.dll
+E:\Mecanica.html\Mechanics.tcc\MODEL\obj\Debug\MODEL.pdb

@@ -1,0 +1,67 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Agenda: Excluir</title>
+    </head>
+    <body>
+        @{ 
+            Agenda agenda = new Agenda();
+
+            AgendaBLL agendBLL = new AgendaBLL();
+
+            string tabela = agendBLL.listarTabelaHTML();
+            <hr>
+            <table>
+                <caption>Agenda antes do Excluir</caption>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Tel</th>
+                        <th>CPF</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                        <th>Box</th>
+                    </tr>
+               </thead>
+                <tbody>
+                    @Html.Raw(tabela)
+                </tbody>
+            </table>
+
+            string resultado = agendBLL.excluir(agenda);
+
+            if (String.IsNullOrEmpty(resultado))
+            {
+                <script type="text/javascript">alert("Dados excluido com sucesso!")</script>
+            }
+            else
+            {
+                <script type="text/javascript">alert('@Html.Raw(@resultado)')</script>
+            }
+
+            tabela = agendBLL.listarTabelaHTML();
+            <hr>
+            <table>
+                <caption>Agenda depois do Excluir</caption>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Tel</th>
+                        <th>CPF</th>
+                        <th>Hora</th>
+                        <th>Data</th>
+                        <th>Box</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Raw(tabela)
+                </tbody>
+            </table>
+
+        }
+    </body>
+</html>

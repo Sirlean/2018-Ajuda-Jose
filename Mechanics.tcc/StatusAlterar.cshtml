@@ -1,0 +1,74 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Status: Alterar</title>
+    </head>
+    <body>
+@{
+    Status status = new Status();
+
+    StatusBLL statBLL = new StatusBLL();
+
+    string tabela = statBLL.listarTabelaHTML();
+    <hr>
+    <table>
+        <caption>Status antes de alterar</caption>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tel</th>
+                <th>Placath>
+             
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Raw(tabela)
+        </tbody>
+    </table>
+
+    string resultado = statBLL.alterar(status);
+
+    if (String.IsNullOrEmpty(resultado))
+    {
+        <script type="text/javascript">alert("Dados alterado com sucesso!")</script>
+    }
+    else
+    {
+        string msgErro = null;
+        if (resultado.IndexOf("N") >= 0)
+        {
+            msgErro += "Nome inválido!";
+        }
+        if (resultado.IndexOf("T") >= 0)
+        {
+            msgErro += "Telefone inválido!";
+        }
+        if (resultado.IndexOf("P") >= 0)
+        {
+            msgErro += "Placa inválido!";
+        }
+
+        <script type="text/javascript">alert('@Html.Raw(@msgErro)')</script>
+    }
+
+    tabela = statBLL.listarTabelaHTML();
+    <hr>
+    <table>
+        <caption>Status depois de alterar</caption>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tel</th>
+                <th>Placa</th>
+                
+            </tr>
+        </thead>
+
+    </table>
+    }
+    </body>
+</html>

@@ -1,0 +1,37 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Status: Select</title>
+    </head>
+    <body>
+        @{
+            StatusBLL statBLL = new StatusBLL();
+
+            string tabela = statBLL.listarTabelaHTML();
+
+
+            @Html.Raw(tabela)
+        }
+
+        <hr>
+        <h2>Montagem de tabela:</h2>
+        <table>
+            <caption>Status</caption>
+            <thead>
+                <tr>
+
+                    <th>Codigo</th>
+                    <th>Nome</th>
+                    <th>Tel</th>
+                    <th>Placa</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.Raw(tabela)
+            </tbody>
+        </table>
+
+    </body>
+</html>

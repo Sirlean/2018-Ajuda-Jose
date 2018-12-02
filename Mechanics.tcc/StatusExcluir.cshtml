@@ -1,0 +1,64 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Status: Excluir</title>
+    </head>
+    <body>
+        @{
+            Status status = new Status();
+
+            StatusBLL statBLL = new StatusBLL();
+
+            string tabela = statBLL.listarTabelaHTML();
+            <hr>
+            <table>
+                <caption>Status antes do Excluir</caption>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Tel</th>
+                        <th>Placa</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Raw(tabela)
+                </tbody>
+            </table>
+
+            string resultado = statBLL.ecxluir(status);
+
+            if (String.IsNullOrEmpty(resultado))
+            {
+                <script type="text/javascript">alert("Dados excluido com sucesso!")</script>
+            }
+            else
+            {
+                <script type="text/javascript">alert('@Html.Raw(@resultado)')</script>
+            }
+
+            tabela = statBLL.listarTabelaHTML();
+            <hr>
+            <table>
+                <caption>Agenda depois do Excluir</caption>
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nome</th>
+                        <th>Tel</th>
+                        <th>Placa</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @Html.Raw(tabela)
+                </tbody>
+            </table>
+
+        }
+
+    </body>
+</html>
