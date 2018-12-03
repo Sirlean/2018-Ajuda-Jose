@@ -29,7 +29,7 @@ namespace MechanicsDAL
 
         public void create(Agenda obj)
         {
-            string create = "INSERT INTO funcionario (nome_agend,tel_agend,cpf_agend,hora_agend,data_agend,box_agend)" +
+            string create = "INSERT INTO agendamento (nome_agend,tel_agend,cpf_agend,hora_agend,data_agend,box_agend)" +
                 "Values('" + obj.Nome1 + "','" + obj.Tel + "','" + obj.CPF1 +
                 "','" + obj.Hora1 + "','" + obj.Data1 + "','" + obj.Box1 + "' )";
             try
@@ -85,11 +85,11 @@ namespace MechanicsDAL
                 {
                     obj.COD_Agenda1 = Convert.ToInt32(reader[0].ToString());
                     obj.Nome1 = reader[1].ToString();
-                    obj.Tel = reader[3].ToString();
-                    obj.CPF1 = reader[2].ToString();
+                    obj.Tel = reader[2].ToString();
+                    obj.CPF1 = reader[3].ToString();
                     obj.Hora1 = reader[4].ToString();
-                    obj.Data1 = reader[1].ToString();
-                    obj.Box1 = reader[1].ToString();
+                    obj.Data1 = reader[5].ToString();
+                    obj.Box1 = reader[6].ToString();
                 }
                 else
                 {
@@ -112,13 +112,13 @@ namespace MechanicsDAL
 
         public void fecharConexao()
         {
-            throw new NotImplementedException();
+            this.con.Dispose();
         }
 
         public List<Agenda> findAll()
         {
             List<Agenda> listaAgend = new List<Agenda>();
-            string findAll = "SELECT * FROM oder by nome_agend";
+            string findAll = "SELECT * FROM agendamento order by nome_agend";
 
             try
             {
@@ -131,11 +131,11 @@ namespace MechanicsDAL
                     Agenda obj = new Agenda();
                     obj.COD_Agenda1 = Convert.ToInt32(reader[0].ToString());
                     obj.Nome1 = reader[1].ToString();
-                    obj.Tel = reader[3].ToString();
-                    obj.CPF1 = reader[2].ToString();
+                    obj.Tel = reader[2].ToString();
+                    obj.CPF1 = reader[3].ToString();
                     obj.Hora1 = reader[4].ToString();
-                    obj.Data1 = reader[1].ToString();
-                    obj.Box1 = reader[1].ToString();
+                    obj.Data1 = reader[5].ToString();
+                    obj.Box1 = reader[6].ToString();
                     listaAgend.Add(obj);
                 }
             }
@@ -159,9 +159,9 @@ namespace MechanicsDAL
 
         public void update(Agenda obj)
         {
-            string create = "UPDATE agenda SET" + "nome_agend = '" + obj.Nome1 + "'tel_agend = '" + obj.Tel +
-               "'cpf_agend = '" + obj.CPF1 + "'hora_agend = '" + obj.Hora1 + "'data_agend = '" + obj.Data1 +
-               "'box_agend = '" + obj.Box1 + "' where cod_agend = '" + obj.COD_Agenda1 + "'";
+            string create = "UPDATE agendamento SET nome_agend = '" + obj.Nome1 + "', tel_agend = '" + obj.Tel + 
+                "', cpf_agend = '" + obj.CPF1 + "', hora_agend = '" + obj.Hora1 + "', data_agend = '" + obj.Data1 +
+               "', box_agend = '" + obj.Box1 + "' where cod_agend = '" + obj.COD_Agenda1 + "'";
 
             try
             {

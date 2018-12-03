@@ -1,0 +1,41 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agenda: Select</title>
+</head>
+<body>
+    @{
+        AgendaBLL agendBLL = new AgendaBLL();
+
+        string tabela = agendBLL.listarTabelaHTML();
+    }
+    <hr>
+    <h2>Montagem de tabela:</h2>
+    <table>
+        <caption>Agenda</caption>
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Tel</th>
+                <th>CPF</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Box</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Html.Raw(tabela)
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    <input type="button" value="Novo" onclick="window.location = 'AgendaInserir.cshtml'" />
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

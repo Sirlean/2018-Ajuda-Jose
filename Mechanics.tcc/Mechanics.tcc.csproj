@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,6 +66,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
@@ -90,43 +94,105 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\assents\imagens\editar.png" />
+    <Content Include="admin\assents\imagens\excluir.png" />
     <Content Include="packages.config" />
-    <Content Include="AgendaSelect.cshtml" />
-    <Content Include="AgendaInserir.cshtml" />
-    <Content Include="AgendaAlterar.cshtml" />
-    <Content Include="AgendaExcluir.cshtml" />
-    <Content Include="StatusSelect.cshtml" />
-    <Content Include="StatusInserir.cshtml" />
-    <Content Include="StatusAlterar.cshtml" />
-    <Content Include="StatusExcluir.cshtml" />
+    <Content Include="admin\AgendaSelect.cshtml" />
+    <Content Include="admin\AgendaInserir.cshtml" />
+    <Content Include="admin\AgendaAlterar.cshtml" />
+    <Content Include="admin\AgendaExcluir.cshtml" />
+    <Content Include="admin\StatusAlterar.cshtml" />
+    <Content Include="admin\StatusExcluir.cshtml" />
+    <Content Include="admin\StatusInserir.cshtml" />
+    <Content Include="admin\StatusSelect.cshtml" />
+    <Content Include="agendamento.cshtml" />
+    <Content Include="_css\agend.css.css" />
+    <Content Include="_css\estilo.css.css" />
+    <Content Include="_css\form.css.css" />
+    <Content Include="_css\specs.css.css" />
+    <Content Include="_css\stat.css.css" />
+    <Content Include="_imagens\audio.png" />
+    <Content Include="_imagens\botao-enviar.png" />
+    <Content Include="_imagens\calendario.png" />
+    <Content Include="_imagens\carros _3.jpg" />
+    <Content Include="_imagens\carros_ 2.jpg" />
+    <Content Include="_imagens\carros_4.jpg" />
+    <Content Include="_imagens\carro_1.jpg" />
+    <Content Include="_imagens\carro_6.jpg" />
+    <Content Include="_imagens\concerto.jpg" />
+    <Content Include="_imagens\contato.png" />
+    <Content Include="_imagens\data.jpg" />
+    <Content Include="_imagens\endereco.png" />
+    <Content Include="_imagens\especificacoes-02.png" />
+    <Content Include="_imagens\especificacoes.png" />
+    <Content Include="_imagens\Facebook.gif" />
+    <Content Include="_imagens\facebook.png" />
+    <Content Include="_imagens\fotos.png" />
+    <Content Include="_imagens\gods_machanics_1.jpg" />
+    <Content Include="_imagens\gods_of_machanis_2.jpg" />
+    <Content Include="_imagens\home.png" />
+    <Content Include="_imagens\icone-contato.png" />
+    <Content Include="_imagens\icone-endereco.png" />
+    <Content Include="_imagens\icone-mensagem.png" />
+    <Content Include="_imagens\icone-pagamento.png" />
+    <Content Include="_imagens\icone-status.jpg" />
+    <Content Include="_imagens\imagem_fundo_jpg.jpg" />
+    <Content Include="_imagens\instagram.jpg" />
+    <Content Include="_imagens\jornal.png" />
+    <Content Include="_imagens\julio-mec.jpg" />
+    <Content Include="_imagens\lampada-acesa.jpg" />
+    <Content Include="_imagens\lampada-apagada.jpg" />
+    <Content Include="_imagens\lampada-quebrada.jpg" />
+    <Content Include="_imagens\logo-google-gig.png" />
+    <Content Include="_imagens\Logos.jpg" />
+    <Content Include="_imagens\mao.png" />
+    <Content Include="_imagens\marco-mec.jpg" />
+    <Content Include="_imagens\mecanica _1.jpg" />
+    <Content Include="_imagens\mecanica_2.jpg" />
+    <Content Include="_imagens\mecanica_3.jpg" />
+    <Content Include="_imagens\mecanico.png" />
+    <Content Include="_imagens\multimidia.png" />
+    <Content Include="_imagens\radio-tv.png" />
+    <Content Include="_imagens\relogio.jpg" />
+    <Content Include="_imagens\samuel-mec.jpg" />
+    <Content Include="_imagens\seguro-desemprego-agendamento-horario.gif" />
+    <Content Include="_imagens\troca_oleo.jpg" />
+    <Content Include="_imagens\twitter.png" />
+    <Content Include="_imagens\video-mini01.jpg" />
+    <Content Include="_imagens\video-mini02.jpg" />
+    <Content Include="_imagens\video-mini03.jpg" />
+    <Content Include="_imagens\video.png" />
+    <Content Include="_imagens\ze-mec.jpg" />
+    <Content Include="_interface\00-divisoes-semanticas.jpg" />
+    <Content Include="_interface\01-index.jpg" />
+    <Content Include="_interface\02-specs.jpg" />
+    <Content Include="_interface\03-fotos.jpg" />
+    <Content Include="_interface\04-multimidia.jpg" />
+    <Content Include="_interface\05-fale-conosco.jpg" />
+    <Content Include="_javascript\audio.js" />
+    <Content Include="_javascript\funcoes.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="_fonts\bubblegum-sans-regular.otf" />
+    <Content Include="_fonts\computer-font.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="recursos\agendamento.html" />
-    <Content Include="recursos\dicas-noticias.html" />
-    <Content Include="recursos\fale-conosco.html" />
-    <Content Include="recursos\index.html" />
-    <Content Include="recursos\quem-somos.html" />
-    <Content Include="recursos\status.html" />
+    <Content Include="agendamento.html" />
+    <Content Include="dicas-noticias.html" />
+    <Content Include="fale-conosco.html" />
+    <Content Include="index.html" />
+    <Content Include="quem-somos.html" />
+    <Content Include="status.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="recursos\_css\" />
-    <Folder Include="recursos\_fonts\" />
-    <Folder Include="recursos\_imagens\" />
-    <Folder Include="recursos\_interface\" />
-    <Folder Include="recursos\_javascript\" />
-    <Folder Include="recursos\_media\" />
-    <Folder Include="recursos\_textos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MechanicsBLL\BLL.csproj">
       <Project>{cb50464a-83bd-449f-98db-fa43ee8abfdf}</Project>

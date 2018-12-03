@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title> Gods Of Mechanics </title>
+    <link rel="stylesheet" typpe="text/css" href="_css/agend.css.css" />
+    <script type="text/javascript">
+        function mudaFoto(foto) {
+            document.getElementById("icone").src = foto;
+        }
+    </script>
+</head>
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Gods Of Mechanics</h1>
+                <h2></h2>
+            </hgroup>
+            <img id="icone" src="_imagens/mecanica_2.jpg" />
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/mecanica_2.jpg')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudaFoto('_imagens/mecanico.png')" onmouseout="mudaFoto('_imagens/mecanica_2.jpg')"><a href="quem-somos.html">Quem Somos</a></li>
+                    <li onmouseover="mudaFoto('_imagens/calendario.png')" onmouseout="mudaFoto('_imagens/mecanica_2.jpg')"><a href="agendamento.cshtml">Agendamento</a></li>
+                    <li onmouseover="mudaFoto('_imagens/concerto.jpg')" onmouseout="mudaFoto('_imagens/mecanica_2.jpg')"><a href="status.html">Status</a></li>
+                    <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/mecanica_2.jpg')"><a href="fale-conosco.html">Fale conosco</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Manutenção > Inovação</h3>
+                        <h1>Agende sua Visita</h1>
+                        <h2></h2>
+                    </hgroup>
+                </header>
+            </article>
+            <form method="post" id="fAgendar">
+                <fieldset id="usuario">
+                    <legend>Identificação do Usuário</legend>
+                    <p><label for="cNome">Nome:  </label><input type="text" name="Nome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo" /></p>
+                    <p>Telefone:  <input type="tel" name="Telefone" id="cMail" size="20" maxlength="40" /></p>
+                    <p>Box:  <input type="text" name="Box" id="cPail" size="20" maxlength="40" /></p>
+                </fieldset>
+                <fieldset id="agenda">
+                    <legend>Agendamento</legend>
+                    <p>
+                        <label for="cAgenda">Agendar: </label>
+                        <input type="date" name="Data" id="cAgenda" />
+                    </p>
+                </fieldset>
+                <fieldset id="hora">
+                    <legend>Horario</legend>
+                    <p>
+                        <label for="cHora">Horario:</label>
+                        <select id=cbHora name="Horario">
+                            <option value=""></option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:30">13:30</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:30">16:30</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:30">19:30</option>
+                        </select>
+                </fieldset>
+                <input id="bnt" type="submit" value="Agendar" />          <!--<input id="bnt" type="submit" value="Alterar" />           <input id="bnt" type="submit" value="Cancelar" />-->
+            </form>
+        </section>
+        <footer id="rodape">
+            <p>
+                Copyright &copy; 2018 - by Marco Moreira <br />
+                <a href="http://facebook.com.br">Facebook</a> |
+                <a href="http://twitter.com">Twitter</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agenda: Alterar</title>
+</head>
+<body>
+    @{
+        AgendaBLL agendBLL = new AgendaBLL();
+        Agenda agendaAlterar = agendBLL.obterPorId(Request.QueryString["id"]);
+
+        string
+                nome = Request["Nome"] ?? agendaAlterar.Nome1,
+                telefone = Request["Telefone"] ?? agendaAlterar.Tel,
+                cpf = Request["CPF"] ?? agendaAlterar.CPF1,
+                horario = Request["Horario"] ?? agendaAlterar.Hora1,
+                data = Request["Data"] ?? agendaAlterar.Data1,
+                box = Request["Box"] ?? agendaAlterar.Box1;
+
+    }
+    <form method="post">
+        <p> Nome: <input type="text" name="Nome" value="@nome" /> </p>
+        <p> Telefone: <input type="text" name="Telefone" value="@telefone" /> </p>
+        <p> CPF: <input type="text" name="CPF" value="@cpf" /> </p>
+        <p> Horario: <input type="text" name="Horario" value="@horario" /> </p>
+        <p> Data: <input type="text" name="Data" value="@data" /> </p>
+        <p> Box: <input type="text" name="Box" value="@box" /> </p>
+        <input type="submit" value="Enviar" /> <input type="button" value="Voltar" onclick="window.location = 'AgendaSelect.cshtml'" />
+    </form>
+    @{
+        if (Request.Form.Count > 0)
+        {
+            Agenda agenda = new Agenda
+            {
+                COD_Agenda1 = int.Parse(Request.QueryString["id"]),
+                Nome1 = Request["Nome"],
+                Tel = Request["Telefone"],
+                CPF1 = Request["CPF"],
+                Hora1 = Request["Horario"],
+                Data1 = Request["Data"],
+                Box1 = Request["Box"],
+            };
+
+            string resultado = agendBLL.alterar(agenda);
+
+            if (String.IsNullOrEmpty(resultado))
+            {
+                <script type="text/javascript">
+                    alert("Dado alterados com sucesso!");
+                    setTimeout(function () {
+                        window.location = 'AgendaSelect.cshtml';
+                    }, 2000);
+                </script>
+            }
+            else
+            {
+                string msgErro = null;
+                if (resultado.IndexOf("N") >= 0)
+                {
+                    msgErro += "Nome inválido!";
+                }
+                if (resultado.IndexOf("T") >= 0)
+                {
+                    msgErro += "Telefone inválido!";
+                }
+                if (resultado.IndexOf("C") >= 0)
+                {
+                    msgErro += "CPF inválido!";
+                }
+                if (resultado.IndexOf("H") >= 0)
+                {
+                    msgErro += "Horario inválido!";
+                }
+                if (resultado.IndexOf("D") >= 0)
+                {
+                    msgErro += "Data inválido!";
+                }
+                if (resultado.IndexOf("B") >= 0)
+                {
+                    msgErro += "Box inválido!";
+                }
+                <script type="text/javascript">alert('@Html.Raw(@msgErro)')</script>
+
+            }
+        }
+    }
+
+</body>
+</html>

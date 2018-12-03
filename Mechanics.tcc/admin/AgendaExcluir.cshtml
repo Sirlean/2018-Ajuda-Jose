@@ -1,0 +1,34 @@
+﻿@using MechanicsBLL;
+@using MODEL;
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agenda: Excluir</title>
+</head>
+<body>
+    @{
+        AgendaBLL agendBLL = new AgendaBLL();
+        Agenda agendaExcluir = new Agenda { COD_Agenda1 = int.Parse(Request.QueryString["id"] ?? "0") };
+        string resultado = agendBLL.excluir(agendaExcluir);
+
+        if (String.IsNullOrEmpty(resultado))
+        {
+            <script type="text/javascript">
+                alert("Dados excluido com sucesso!");
+                setTimeout(function () {
+                    window.location = 'AgendaSelect.cshtml';
+                }, 2000);
+            </script>
+        }
+        else
+        {
+            <script type="text/javascript">
+                alert("Falha ao excluir!");
+                setTimeout(function () {
+                    window.location = 'AgendaSelect.cshtml';
+                }, 2000);
+            </script>
+        }
+    }
+</body>
+</html>

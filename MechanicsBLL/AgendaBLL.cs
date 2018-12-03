@@ -23,24 +23,24 @@ namespace MechanicsBLL
             string msg = null;
 
             //validar nome
-            if (obj.Nome1.Length <= 7)
+            if (string.IsNullOrEmpty(obj.Nome1) || obj.Nome1.Length <= 7)
             {
                 msg += "N";
             }
 
             //validar telefone
-            if (obj.Tel.Length < 5)
+            if (string.IsNullOrEmpty(obj.Tel) || obj.Tel.Length < 5)
             {
                 msg += "T";
             }
             //validar cpf
             //garantir somente os numeros
-            string cpf = obj.CPF1.Replace(".", "").Replace(".", "").Replace("-", "");
+            string cpf = string.IsNullOrEmpty(obj.CPF1) ? string.Empty : obj.CPF1.Replace(".", "").Replace(".", "").Replace("-", "");
             obj.CPF1 = cpf;
 
             //validar para cpfs compostos de numeros repetidos e validar se possui 11 disgitos
             //validar o digito verificar % 11
-            if (cpf.Length == 11)
+            if (!string.IsNullOrEmpty(obj.CPF1) && cpf.Length == 11)
             {
                 if (cpf == "11111111111" || cpf == "22222222222" || cpf == "33333333333" ||
                     cpf == "44444444444" || cpf == "55555555555" || cpf == "66666666666" ||
@@ -54,6 +54,29 @@ namespace MechanicsBLL
             {
                 msg += "C1";
             }
+
+            //validar box
+            if (string.IsNullOrEmpty(obj.Box1) || obj.Box1.Length < 1)
+            {
+                msg += "B";
+            }
+
+            //validar box
+            if (string.IsNullOrEmpty(obj.Box1) || obj.Box1.Length < 1)
+            {
+                msg += "B";
+            }
+            //validar Hora 9:40 / 10:20
+            if (string.IsNullOrEmpty(obj.Hora1) || obj.Hora1.Length < 4)
+            {
+                msg += "H";
+            }
+            //validar Data
+            if (string.IsNullOrEmpty(obj.Data1) || !DateTime.TryParseExact(obj.Data1, "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentCulture, DateTimeStyles.None, out var data) || data < DateTime.Now)
+            {
+                msg += "D";
+            }
+
             return msg;
 
         }
@@ -170,15 +193,17 @@ namespace MechanicsBLL
                     foreach (Agenda objAgen in lista)
                     {
                         linhas += "<tr>";
+                        linhas += "<td>" + objAgen.COD_Agenda1 + "</td>";
                         linhas += "<td>" + objAgen.Nome1 + "</td>";
                         linhas += "<td>" + objAgen.Tel + "</td>";
                         linhas += "<td>" + objAgen.CPF1 + "</td>";
                         linhas += "<td>" + objAgen.Data1 + "</td>";
                         linhas += "<td>" + objAgen.Hora1 + "</td>";
-                        linhas += "<td><a href=\"/updateAgenda.cshtml?id=" + objAgen.COD_Agenda1 +
-                            "\"><img src=\"/assents/imagens/editar.jpg\"></a></td>";
-                        linhas += "<td><a href=\"/deleteAgenda.cshtml?id=" + objAgen.COD_Agenda1 +
-                            "\"><img src=\"/assents/imagens/excluir.jpg\"></a></td>";
+                        linhas += "<td>" + objAgen.Box1 + "</td>";
+                        linhas += "<td><a href=\"/AgendaAlterar.cshtml?id=" + objAgen.COD_Agenda1 +
+                            "\"><img src=\"assents/imagens/editar.png\"></a></td>";
+                        linhas += "<td><a href=\"/AgendaExcluir.cshtml?id=" + objAgen.COD_Agenda1 +
+                            "\"><img src=\"assents/imagens/excluir.png\"></a></td>";
                         linhas += "</tr>";
 
 
@@ -190,6 +215,13 @@ namespace MechanicsBLL
                 linhas = "<tr><td colspan ='6'>" + ex.Message + "</td></tr>";
             }
             return linhas;
+        }
+        public Agenda obterPorId(string id)
+        {
+            Agenda agenda = new Agenda();
+            agenda.COD_Agenda1 = int.Parse(id);
+            this.agendDAL.find(agenda);
+            return agenda;
         }
     }
 }
