@@ -3,3 +3,12 @@
 ################################################################################
 
 /.vs
+/packages
+/Mechanics.tcc/bin
+/Mechanics.tcc/obj
+/MechanicsBLL/bin
+/MechanicsBLL/obj
+/MechanicsDAL/bin
+/MechanicsDAL/obj
+/MODEL/bin
+/MODEL/obj
